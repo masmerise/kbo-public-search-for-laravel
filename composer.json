@@ -1,0 +1,61 @@
+{
+    "name": "masmerise/kbo-public-search-for-laravel",
+    "description": "Laravel framework adapter for the KBO Public Search SDK.",
+    "license": "MIT",
+    "keywords": [
+        "laravel",
+        "kbo",
+        "bce",
+        "crossroads bank for enterprises"
+    ],
+    "authors": [
+        {
+            "name": "Muhammed Sarı",
+            "role": "Developer"
+        }
+    ],
+    "homepage": "https://github.com/masmerise/kbo-public-search-for-laravel",
+    "require": {
+        "php": "~8.5",
+        "illuminate/contracts": "^13.0",
+        "illuminate/support": "^13.0",
+        "masmerise/kbo-public-search-php-sdk": "^1.0",
+        "webmozart/assert": "^2.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.9.3",
+        "laravel/pint": "^1.29",
+        "orchestra/testbench": "^11.0"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "KboPublicSearch\\Laravel\\": "src"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "KboPublicSearch\\Laravel\\Tests\\": "tests"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "KboPublicSearch\\Laravel\\ServiceProvider"
+            ]
+        }
+    },
+    "scripts": {
+        "format": "vendor/bin/pint",
+        "larastan": "vendor/bin/phpstan analyse --memory-limit=2G",
+        "test": "vendor/bin/phpunit",
+        "verify": ["@larastan", "@test"]
+    }
+}
